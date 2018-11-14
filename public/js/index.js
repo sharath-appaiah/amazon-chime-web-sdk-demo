@@ -1,11 +1,11 @@
-var client = new ChimeWebSDK();
-var chatApi = client.chat;
-var contactApi = client.contact;
-var authApi = client.auth;
+const client = new ChimeWebSDK();
+const chatApi = client.chat;
+const contactApi = client.contact;
+const authApi = client.auth;
 
-var conversationId;
-var nameMap = {};
-var currentProfile = {};
+let conversationId;
+const nameMap = {};
+let currentProfile = {};
 
 function start() {
     // Always check if the user is authenticated on page load to
@@ -44,7 +44,7 @@ function start() {
 // Append message to chat message wall
 function appendMessage(content, senderId) {
     if (!content) return;
-    var senderName = nameMap[senderId];
+    const senderName = nameMap[senderId];
     $("#chat-messages").append('<li class="list-group-item">' + '<b>' + senderName + '</b>' + ': ' + content + '</li>');
 }
 
@@ -90,13 +90,13 @@ function handleChatTabClick() {
     chatApi.listConversationMessages(conversationId)
         .then(function(res) {
             $("#chat-messages").empty();
-            for (var i = res.result.length - 1; i >= 0 ; i--) {
-                var content = res.result[i].content;
+            for (let i = res.result.length - 1; i >= 0 ; i--) {
+                const content = res.result[i].content;
                 if (content) {
                     appendMessage(content, res.result[i].sender);
                 }
                 
-                var url = res.result[i].attachmentVariants && res.result[i].attachmentVariants[0].url;
+                const url = res.result[i].attachmentVariants && res.result[i].attachmentVariants[0].url;
                 if (url) {
                     appendImage(url)
                 }
@@ -115,17 +115,17 @@ function handleChatTabClick() {
 // Add contact and create conversation, and save conversation id
 // to global variable conversationId
 function handleAddContact() {
-    var email = $("#add-contact-email").val();
+    const email = $("#add-contact-email").val();
     contactApi.addContact(email)
         .then(function(res) {
             chatApi.createConversation([res.profileId])
                 .then(function(res) {
                     conversationId = res.id;
-                    var members = res.members;
-                    for (var member of members) {
+                    const members = res.members;
+                    for (const member of members) {
                         nameMap[member.id] = member.name;
                     } 
-                    var chatName = members[0].id === currentProfile.id ? members[1].name : members[0].name;
+                    const chatName = members[0].id === currentProfile.id ? members[1].name : members[0].name;
                     $('#chat-name').empty();
                     $('#chat-name').append('Chat with: ' + chatName);
                     renderItem("#chat-tab");
@@ -137,7 +137,7 @@ function handleAddContact() {
 }
 
 function handleSendMessage() {
-    var message = $("#message-input").val();
+    const message = $("#message-input").val();
     if (message.trim()) {
         chatApi.createConversationMessage(conversationId, message.trim())
             .then(function(res) {
