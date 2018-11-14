@@ -1,0 +1,18 @@
+/node_modules
+/build
+/dist
+/tmp
+/proxy/__pycache__/
+
+# temp files
+*~
+*.swp
+*.sw*
+*.orig
+*.DS_Store
+*.iml
+.idea/*
+.nyc_output/*
+.awcache/*
+.vscode
+npm-debug.log
