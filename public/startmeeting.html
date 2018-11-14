@@ -17,10 +17,11 @@
 
 <div class="view">
   <div>
-    <button class="btn btn-primary" onclick="handleListConversations()">List Conversations</button>
+    <button class="btn btn-primary" onclick="handleStartInstantMeeting(true)">Start instant meeting</button>
   </div>
-  <div id="conversation-list">
-    <ul id="conversations" class="list-group"></ul>
+  <br/>
+  <div>
+    <button class="btn btn-primary" onclick="handleStartInstantMeeting(false)">Start instant meeting with one-time PIN</button>
   </div>
 </div>
 
@@ -29,6 +30,6 @@
 
 <script src="js/sdk-0.1.2.js"></script>
 <!-- <script src="https://g.app.chime.aws/embed/sdk-0.1.1.js"></script> -->
-<script src="js/listconversations.js"></script>
+<script src="js/startmeeting.js"></script>
 </body>
 </html>
