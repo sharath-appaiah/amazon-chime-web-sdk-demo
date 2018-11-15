@@ -34,10 +34,7 @@ function start() {
 
     $("#auth-button").click(authApi.authenticate);
     $("#unauth-button").click(function() {
-        authApi.signOut()
-            .then(function() {
-                showUnauthPage();
-            })
+        authApi.signOut();
     });
 };
 
@@ -125,7 +122,7 @@ function handleAddContact() {
                     for (const member of members) {
                         nameMap[member.id] = member.name;
                     } 
-                    const chatName = members[0].id === currentProfile.id ? members[1].name : members[0].name;
+                    const chatName = members[0].id === currentProfile.profileId ? members[1].name : members[0].name;
                     $('#chat-name').empty();
                     $('#chat-name').append('Chat with: ' + chatName);
                     renderItem("#chat-tab");
