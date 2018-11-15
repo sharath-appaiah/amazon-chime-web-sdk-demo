@@ -34,21 +34,21 @@
           "lastSent": Date,
           "members": [
             {
-              "id": "3f52b52f-c359-46db-b7ef-cb8815f3316c",
-              "name": "Amazon Chime Recordings",
-              "email": "recordings@chime.aws",
-              "type": "recorder",
-              "presenceChannel": "profile_presence!3f52b52f-c359-46db-b7ef-cb8815f3316c",
-              "lastRead": "2017-05-12T16:54:05.775Z",
-              "lastDelivered": "2017-05-12T16:54:05.775Z"
+              "id": String,
+              "name": String,
+              "email": String,
+              "type": String,
+              "presenceChannel": String,
+              "lastRead": Date,
+              "lastDelivered": Date
             }, {
-              "id": "fe55e6cd-ae6e-4ccf-9de7-22a32f175d12",
-              "name": "Cox, Eric",
-              "email": "ericcox@amazon.com",
-              "type": "idp",
-              "presenceChannel": "profile_presence!fe55e6cd-ae6e-4ccf-9de7-22a32f175d12",
-              "lastRead": "2018-09-26T18:17:30.573Z",
-              "lastDelivered": "2018-11-15T00:13:42.620Z"
+              "id": String,
+              "name": String,
+              "email": String,
+              "type": String,
+              "presenceChannel": String,
+              "lastRead": Date,
+              "lastDelivered": Date
             }
           ],
           "isFavorite": bool
@@ -77,6 +77,7 @@
 * conversationId - String
 * callback(message) - function
     * Message:
+    ```
         {
           "data": {
             "record": {
@@ -93,5 +94,6 @@
             }
           }
         }
+    ```
 ###### return:
 * none
