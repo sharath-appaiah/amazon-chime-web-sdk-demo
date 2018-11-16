@@ -16,6 +16,40 @@
    npm run server
    ```
 
+### Basic Usage
+
+```javascript
+// Initialize Amazon Chime Web SDK client
+const client = new ChimeWebSDK();
+
+// APIs are split into four namespaces 
+const { auth, chat, contact, meetings } = client;
+
+// Check authentication status (ALWAYS required on page load)
+auth.checkIsAuthenticated().then(isAuthed => {
+  if (isAuthed) {
+    // ready to use auth-required methods
+    contact.addContact('foo@example.com')
+      .then(profile => {
+        console.log(profile);
+      })
+  } else {
+    // if users is not authenticated, we should hide everything that requires auth 
+    // and bind authenticate method to a user action(button) asking for authentication
+    // For example: $('#auth-button').click(auth.authenticate)
+  }
+});
+
+// This event will be fired only if auth status changes after SDK is loaded
+auth.onAuthStatus(isAuthed => {
+  if (isAuthed) {
+    // render regular pages
+  } else {
+    // render a sign-in page
+  }
+});
+```
+
 ### API Documentation
 
 ### Auth
