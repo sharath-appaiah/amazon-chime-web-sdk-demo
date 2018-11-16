@@ -281,9 +281,9 @@
 
 ---
 
-#### Object types
+### Object types
 
-`Profile`
+#### `Profile`
 
 ```javascript
 {
@@ -298,7 +298,7 @@
 }
 ```
 
-`Conversation`
+#### `Conversation`
 
 ```javascript
 {
@@ -344,7 +344,7 @@
 }
 ```
 
-`ConversationMessage`
+#### `ConversationMessage`
 
 ```javascript
 {
