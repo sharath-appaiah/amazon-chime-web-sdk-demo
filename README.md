@@ -173,7 +173,7 @@ auth.onAuthStatus(isAuthed => {
 
 | Type    | Auth required? | Description                       |
 | :------ | :------------- | :-------------------------------- |
-| Promise | true           | Create and return a conversation. |
+| Promise | true           | Return a list of conversation.    |
 
 **Arguments**
 
@@ -200,9 +200,9 @@ auth.onAuthStatus(isAuthed => {
 
 #### `chat.listConversationMessages(conversationId, options)`
 
-| Type    | Auth required? | Description                       |
-| :------ | :------------- | :-------------------------------- |
-| Promise | true           | Create and return a conversation. |
+| Type    | Auth required? | Description                             |
+| :------ | :------------- | :-------------------------------------- |
+| Promise | true           | Return a list of conversation messages. |
 
 **Arguments**
 
