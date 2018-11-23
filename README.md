@@ -410,3 +410,16 @@ auth.onAuthStatus(isAuthed => {
   "updatedOn": "2018-11-16T00:33:09.165Z"
 }
 ```
+
+#### `Event<ConversationMessage>`
+
+```javascript
+{
+  "data": {
+    "metadata": {
+      "isNoisy": true
+    },
+    "record": /* see ConversationMessage object */
+  }
+}
+```
