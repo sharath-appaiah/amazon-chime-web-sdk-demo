@@ -2,9 +2,11 @@ const client = new ChimeWebSDK();
 const chatApi = client.chat;
 const contactApi = client.contact;
 const authApi = client.auth;
+const meetingsApi = client.meetings;
 
 let conversationId;
 const nameMap = {};
+let contact = {};
 let currentProfile = {};
 
 function start() {
@@ -80,6 +82,12 @@ function handleContactTabClick() {
     renderItem("#contact-view");
 }
 
+// Hide other views and render meeting view
+function handleMeetingTabClick() {
+  hideItem(".view");
+  renderItem("#meeting-view");
+}
+
 // 1. list conversation messages and append to page content
 // 2. register onConversationMessage callback to receive new messages and append them to the view
 // 3. Hide other views and render chat view
@@ -115,6 +123,9 @@ function handleAddContact() {
     const email = $("#add-contact-email").val();
     contactApi.addContact(email)
         .then(function(res) {
+            contact = res;
+            $("#call-contact").html(`Start meeting with ${res.name}`);
+            renderItem("#meeting-tab");
             chatApi.createConversation([res.profileId])
                 .then(function(res) {
                     conversationId = res.id;
@@ -143,6 +154,10 @@ function handleSendMessage() {
     }
 }
 
+function handleCallContact() {
+  meetingsApi.startGroupMeeting([contact.profileId]);
+}
+
 // Render a page that is authenticated
 function showAuthPage() {
     renderItem(".auth-item");
@@ -156,6 +171,7 @@ function showUnauthPage() {
     hideItem(".auth-item");
     hideItem(".view");
     hideItem("#chat-tab");
+    hideItem("#meeting-tab");
 }
 
 start();

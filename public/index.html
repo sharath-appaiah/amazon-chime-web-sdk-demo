@@ -38,6 +38,9 @@
                 <li id="chat-tab" class="hidden" onclick="handleChatTabClick()">
                     <a href="#">Chat</a>
                 </li>
+                <li id="meeting-tab" class="hidden" onclick="handleMeetingTabClick()">
+                  <a href="#">Meeting</a>
+                </li>
                 <li class="auth-item hidden" onclick="handleSignoutTabClick()">
                     <a href="#">Sign out</a>
                 </li>
@@ -79,6 +82,12 @@
                   </div>
                 </div>
                 <!-- /#chat-view -->
+
+                <!-- Meeting view -->
+                <div id="meeting-view" class="hidden view">
+                  <button id="call-contact" class="btn btn-primary" onclick="handleCallContact()"></button>
+                </div>
+                <!-- /#meeting-view -->
 
                 <!-- Signout view -->
                 <div id="signout-view" class="view hidden">
